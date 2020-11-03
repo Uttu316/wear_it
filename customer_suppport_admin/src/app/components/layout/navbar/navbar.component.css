@@ -1,0 +1,48 @@
+a:hover{
+  text-decoration:none;
+  color: #fff;
+}
+.w100{
+  width:100%;
+}
+.fl{
+  float:left;
+}
+.fr{
+  float:right;
+}
+.black{
+  background:#000;
+}
+.bttn {
+    color: #fff;
+    padding: 7px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+.ml10{
+  margin-left:10px;
+}
+.menu ul li {
+    list-style: none;
+    padding: 0;
+    margin:0;
+    
+}
+.menu-item a{
+  text-decoration:none;
+}
+.menu ul {
+    padding: 0px;
+}
+.left-hide{
+  left: -260px !important;
+}
+
+.conteudo-inner.conteudo-inner-full{
+  padding-left: 0px!important;
+}
+
+.menu-side{
+  left: -280px; opacity: 0;
+}

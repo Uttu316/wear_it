@@ -1,0 +1,125 @@
+<div class="mb-4">
+  <div class="page-header  mb-0">
+    <h4 class="page-title">Add User</h4>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Add User</li>
+    </ol>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title"><img src="assets/images/icon/information.png">&nbsp;Add User</h3>
+
+      </div>
+      <div class="card-body">
+        <form [formGroup]="add_record" class="form-horizontal" class="form" autocomplete="off">
+          <div class="card-body">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>First Name</strong> <span class="required-star">*</span></label>
+                      <input type="text" class="form-control" name="example-text-input" placeholder="First Name" formControlName="first_name">
+                        <div *ngIf="(f.first_name.errors && f.first_name.touched) || (f.first_name.errors && submitted)" class="errorMsg">
+                            <div *ngIf="f.first_name.errors.required" >This field is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Last Name</strong> <span class="required-star">*</span></label>
+                      <input type="text" class="form-control" name="example-text-input" placeholder="Last Name" formControlName="last_name">
+                        <div *ngIf="(f.last_name.errors && f.last_name.touched) || (f.last_name.errors && submitted)" class="errorMsg">
+                            <div *ngIf="f.last_name.errors.required" >This field is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Email</strong> <span class="required-star">*</span></label>
+                      <input type="text" class="form-control" name="example-text-input" placeholder="Email" formControlName="email">
+                        <div *ngIf="(f.email.errors && f.email.touched) || (f.email.errors && submitted)" class="errorMsg">
+                            <div *ngIf="f.email.errors.required" >This field is required</div>
+                             <div [hidden]="!f.email.errors.patternInvalid" class="errorMsg">Please enter valid email.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Mobile Number</strong> <span class="required-star">*</span></label>
+                      <input type="text" class="form-control" name="example-text-input" placeholder="Mobile Number" formControlName="mobile">
+                         <div *ngIf="(f.mobile.errors && f.mobile.touched) || (f.mobile.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.mobile.errors.required" >This field is required</div>
+                              <div [hidden]="!f.mobile.errors.patternMobileInvalid">Mobile Number should be 10 digit</div>
+                          </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Aadhar Number</strong> <span class="required-star">*</span></label>
+                      <input type="number" class="form-control" name="example-text-input" placeholder="Aadhar Number" formControlName="aadhar">
+                         <div *ngIf="(f.aadhar.errors && f.aadhar.touched) || (f.aadhar.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.aadhar.errors.required" >This field is required</div>
+                              <div [hidden]="!f.aadhar.errors.patternAadharInvalid">Aadhar Number should be 12 digit</div>
+                          </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Pan Number</strong> <span class="required-star">*</span></label>
+                      <input type="text" class="form-control" name="example-text-input" placeholder="Pan Number" formControlName="pan">
+                         <div *ngIf="(f.pan.errors && f.pan.touched) || (f.pan.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.pan.errors.required" >This field is required</div>
+                              <div [hidden]="!f.pan.errors.patternPanInvalid">Pan Number should be 10 digit</div>
+                          </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Designation</strong> <span class="required-star">*</span></label>
+                      <input type="text" class="form-control" name="example-text-input" placeholder="Designation" formControlName="designation">
+                        <div *ngIf="(f.designation.errors && f.designation.touched) || (f.designation.errors && submitted)" class="errorMsg">
+                            <div *ngIf="f.designation.errors.required" >This field is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Superuser</strong> <span class="required-star">*</span></label>
+                      <select class="form-control" formControlName="is_superuser">
+                        <option [attr.selected]="his_superuser==''" value="" disabled>--Select Superuser--</option>
+                       <option value="True">Yes</option> 
+                       <option value="False">No</option> 
+                      </select>
+                     <div *ngIf="(f.is_superuser.errors && f.is_superuser.touched) || (f.is_superuser.errors && submitted)" class="errorMsg">
+                            <div *ngIf="f.is_superuser.errors.required" >This field is required</div>
+                        </div>
+                    </div>
+                </div>
+
+               
+                
+                <div class="col-lg-12">
+                  <div class=" mt-5 mb-0"> 
+
+                    <button *ngIf="!processingFlag" type="button" class="btn btn-primary" (click)="onSubmit()" ><i class="fa fa-plus"></i>&nbsp;Add User</button> 
+                    <button *ngIf="processingFlag" type="button" class="btn btn-primary"  ><i class="fa fa-spinner fa-spin"></i> Processing...</button> 
+
+                  </div>
+                </div>
+            </div>
+          </div>
+         </form>
+      </div>
+    </div>
+  </div>
+</div>

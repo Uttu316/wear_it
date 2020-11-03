@@ -1,0 +1,141 @@
+.card.card012 {
+    padding: 16px;
+}
+
+.cardhi012{
+	height: 221px;
+}
+
+.carddata021{
+	text-align: center;
+    /*margin-top: 40%;*/
+}
+
+.cardhead021{
+	text-align: center;
+    margin-top: 6%;
+}
+
+.card-cent302{
+	display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
+
+/*.custom032{
+	font-size: 47px;
+    border: 3px solid white;
+    padding: 10px;
+    border-radius: 16px;
+    margin-bottom: 3%;
+}*/
+
+
+.custom032 {
+    height: 71px;
+    font-size: 47px;
+    border: 3px solid white;
+    padding: 9px 7px;
+    border-radius: 16px;
+}
+
+.content-wrapper .card.gradient-ibiza {
+    z-index: 9;
+}
+
+.cmc {
+    font-size: 18px;
+    font-weight: 300;
+  }
+  .cmc b {
+    font-size: 24px;
+    border-bottom: 1px dotted #fdfdfd;
+    padding-bottom: 15px;
+    margin: 0 10% 15px;
+    display: block;
+  }
+  .cmc p {
+    padding: 0 15px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fdfdfd;
+    font-family: "Signika",sans-serif;
+  }
+  .cmc small {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  .cmg {
+    background: #00607b;
+    color: #fdfdfd;
+    min-height: 205px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .cmg-2 {
+    background: #113a56  !important;
+    color: #fdfdfd;
+    min-height: 205px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.output-heading {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+    position: relative;
+    font-weight: 400;
+    font-family: "Signika",sans-serif;
+    color: #113a56;
+}
+.output-panel-heading{
+    border: none;
+    background: #00607b;
+    padding: 10px 15px;
+    color: #fdfdfd;
+    font-size: 14px;
+    border-radius: 0;
+    font-family: "Signika",sans-serif;
+}
+
+.downlineGraphYear1 {
+    color: #00607b;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.downlineGraphYear2 {
+    color: #ffab32;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+     text-align: center;
+}
+span.mining-period {
+    color: #52ffe7;
+    font-size: 14px;
+}
+
+.box>.icon>.image {
+    position: relative;
+    z-index: 2;
+    margin: auto;
+    width: 67px;
+    height: 67px;
+    border: 8px solid white;
+    line-height: 48px;
+    border-radius: 50%;
+    background: #63B76C;
+    vertical-align: middle;
+}
+
+th.border-bottom-0 {
+    color: #fff !important;
+}

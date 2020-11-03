@@ -1,0 +1,218 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ng2-slim-loading-bar/style.css";
+.side-app {
+        min-height: 720px;
+}
+.error-msg {
+    color: red;
+    text-align: left;;
+}
+.errorMsg {
+    color: #b54040;
+}
+.star{
+  color:red;
+}
+.required-star {
+    color: red;
+}
+
+.width-20 {
+    width: 33%!important;
+    float: left!important;
+}
+.width-80 {
+    width: 65%!important;
+    float: right!important;
+}
+.full-box{
+  width: 100%;
+    display: block;
+    overflow: hidden;
+}
+th.border-bottom-0 {
+    color: #fff !important;
+}
+
+.ngx-pagination .current {
+    background: #8966f7 !important;
+}
+ul.ngx-pagination {
+    text-align: right!important;
+}
+
+/*Mahendra*/
+.radio-btn-single{
+    width: 50%;
+    float: left;
+}
+.table-pencil {
+    background: #007eff;
+    padding: 3px 6px;
+    color: #fff;
+    font-size: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.table-hourglass {
+    background: #ff5e00;
+    padding: 3px 6px;
+    color: #fff;
+    font-size: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.table-phone {
+    background: #0008ff;
+    padding: 3px 7px;
+    color: #fff;
+    font-size: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.search-btn {
+    background: #8966f7;
+    padding: 6px;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+}
+.ng-autocomplete_country {
+    width: 285px!important;
+}
+.autocomplete-container .suggestions-container ul li a b{
+    cursor: pointer!important;
+    color: rgba(0,0,0,.87)!important;
+    font-size: 15px!important;
+}
+
+.btn-view {
+    background: #008080;
+    padding: 4px 5px;
+    font-size: 10px;
+    color: #fff!important;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.btn-view:hover {
+   color: #fff!important;
+}
+
+
+
+.btn-active {
+    background: green;
+    padding: 4px 5px;
+    font-size: 10px;
+    color: #fff!important;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.btn-active:hover {
+   color: #fff!important;
+}
+
+.btn-deactive {
+    background: red;
+    padding: 5px 5px;
+    font-size: 10px;
+    color: #fff!important;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.btn-deactive:hover {
+   color: #fff!important;
+}
+
+.btn-edit {
+    background: #00b8ff;
+    padding: 4px 5px;
+    font-size: 10px;
+    color: #fff!important;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.btn-edit:hover {
+   color: #fff!important;
+}
+
+
+.btn-delete {
+    background: #fb5d5d;
+    padding: 5px 4px;
+    font-size: 10px;
+    color: #fff!important;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.btn-delete:hover {
+   color: #fff!important;
+}
+
+.submenu-color {
+    color: #254daa;
+}
+
+.listing_logo {
+    width: 30px;
+    height: 30px;
+}
+
+.no-record {
+    text-align: center;
+    color: red;
+}
+.add-btn{
+        color: #fff!important;
+    border-radius: 5px;
+    background: #3f51b5;
+    padding: 6px 7px;
+}
+.star_required{
+    color:red;
+}
+.brround.profile-img {
+    width: 100px;
+    height: 100px;
+    border: 3px solid #eceaea;
+}
+span.available_day {
+    padding: 4px 5px 4px 4px;
+    color: #fff;
+    background: green;
+    margin-right: 5px;
+    text-align: center;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+.btn-list>.btn:not(:last-child), .btn-list>.dropdown:not(:last-child) {
+    margin-right: .5rem;
+}
+.btn-size {
+    font-size: 10px !important;
+    line-height: 16px!important;
+}
+img#blah {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #00d0ff;
+}
+.total-record-btn {
+    border: 1px solid #254daa;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.seperate-line {
+    border-bottom: 1px solid #ece5e5;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.delete-shop-img {
+    text-align: center;
+    background: #ea5353;
+    color: #fff;
+    cursor: pointer;
+}

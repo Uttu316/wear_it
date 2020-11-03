@@ -1,0 +1,347 @@
+<div class="mb-4">
+    <div class="page-header  mb-0">
+        <h4 class="page-title">All Merchant</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/dashboard" >Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">All Merchant</li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"> 
+                <div class="card-title"><img src="assets/images/icon/information.png">&nbsp;All Merchant</div>
+                 <div class="card-options" > 
+                    <!-- <a class="total-record-btn" routerLink="/color/add-color">Total Record : {{tabledata['recordsTotal']}}</a> -->
+                </div>
+                 <div class="card-options" > 
+                    <a class="add-btn" routerLink="/manage-merchant/add-merchant"><img src="assets/images/icon/plus.png">&nbsp;Add Merchant</a>
+                </div> 
+            </div>
+
+           
+            <div class="card-body">
+               <!--  <div class="form-group">
+                 
+                    <div class="row gutters-xs"> 
+                        <div class="col-sm-4"> 
+                            <input type="text" class="form-control" placeholder="Search for prduct title..." (keyup)=onKeySearchTitle($event.target.value)>
+                        </div>
+
+                        <div class="col-sm-4"> 
+                                <div class="form-group">
+                                
+                                    <select class="form-control " (change)=onKeySearchcategory($event.target.value)>
+                                       <option value='' [selected] = "hcategory == ''" disabled>--Select Category--</option>
+                                      <option *ngFor="let all_category of all_categorys" [value]="all_category.id">{{all_category.cat_name}}</option> 
+                                    </select>
+                                    
+                                 </div>
+                        </div>
+                
+                    </div>
+                </div> -->
+                <div class="table-responsive">
+                        <table id="example" class="table table-bordered key-buttons text-nowrap" *ngIf="tabledata['tableData']">
+                            <thead class="bg-primary text-white">
+                                <tr>
+                                    <th class="border-bottom-0">S.No</th>
+                                    <th class="border-bottom-0">Firm Name</th>
+                                    <th class="border-bottom-0">Phone Number</th>
+                                    <th class="border-bottom-0">GST No.</th>
+                                    <th class="border-bottom-0">City</th>
+                                    <th class="border-bottom-0">State</th>
+                                    <th class="border-bottom-0">Country</th>
+                                    <th class="border-bottom-0">Merchant Type</th>
+                                    <th class="border-bottom-0">Customer Segment</th>
+                                    <th class="border-bottom-0" *ngIf="localstoragedata.is_superuser == 'True'">Next Call Date</th>
+                                    
+                                    <th class="border-bottom-0">Action</th>
+                                          
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                        <tr *ngFor="let records of data | paginate: { itemsPerPage: 10, currentPage: p }  ; let i = index">
+                                            <td>{{ (p - 1) * 50 + i +1 }}</td>
+                                            
+                                            <td>{{records['firm_name']}}</td>
+                                            <td>{{records['phone_number']}}</td>
+                                            <td>{{records['gstn']}}</td>
+                                            <td>{{records['city']}}</td>
+                                            <td>{{records['state']}}</td>
+                                            <td>{{records['country']}}</td>
+                                            <td>{{records['merchant_type']}}</td>
+                                            <td>{{records['customer_segment']}}</td>
+                                            <td *ngIf="localstoragedata.is_superuser == 'True'">{{records['next_call_date']}}</td>
+                                            
+                                            
+                                           <td>
+                                                <div class="btn-list">
+                                                    <button type="button" class="btn btn-icon  btn-info btn-size"  (click)="viewRecord(records['pk'])"><i class="fas fa-binoculars text-white"></i></button>
+
+                                                    
+                                                    <button type="button" class="btn btn-icon  btn-primary btn-size"  (click)="editrecord(records['pk'])"><i class="fas fa-edit text-white"></i></button>
+
+                                                </div>    
+                                            </td>
+                                            
+                                        </tr>
+                                        
+                                    </tbody>
+                        </table>
+                        <pagination-controls (pageChange)="p = $event" *ngIf="data"></pagination-controls>
+                          
+                          <table id="example" class="table table-striped " cellspacing="0" width="1500px;" *ngIf="tableview['failmessage']">
+                              <div class="no-table-record">
+                                  No record found....
+                              </div>
+                          </table>
+                </div>
+            </div>    
+        </div>    
+    </div>
+</div>
+
+
+<!-- View City -->
+<div class="modal fade show" id="viewRecordModal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="example-Modal3">View Merchant Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+            </div>
+            
+            <div class="modal-body" *ngIf="singlerecord">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="recipient-name" class="form-control-label"><strong>Firm Name : </strong>{{singlerecord.firm_name}}</label>
+                        </div>
+                    </div> 
+                    
+                     <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="recipient-name" class="form-control-label"><strong>Phone Number : </strong>{{singlerecord.phone_number}}</label>
+                        </div>
+                    </div> 
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="recipient-name" class="form-control-label"><strong>GST No. : </strong>{{singlerecord.gstn}}</label>
+                        </div>
+                    </div> 
+                     <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="recipient-name" class="form-control-label"><strong>City : </strong>{{singlerecord.city}}</label>
+                        </div>
+                    </div> 
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="recipient-name" class="form-control-label"><strong>State : </strong>{{singlerecord.state}}</label>
+                        </div>
+                    </div> 
+                     <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="recipient-name" class="form-control-label"><strong>Country : </strong>{{singlerecord.country}}</label>
+                        </div>
+                    </div> 
+                     <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="recipient-name" class="form-control-label"><strong>Customer Segment : </strong>{{singlerecord.customer_segment}}</label>
+                        </div>
+                    </div> 
+                    
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="recipient-name" class="form-control-label"><strong>Merchant Type : </strong>{{singlerecord.merchant_type}}</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="recipient-name" class="form-control-label"><strong>CRM User Email : </strong>{{singlerecord.crm_user_email}}</label>
+                        </div>
+                    </div> 
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="recipient-name" class="form-control-label"><strong>CRM User Name : </strong>{{singlerecord.crm_user_name}}</label>
+                        </div>
+                    </div> 
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="recipient-name" class="form-control-label"><strong>CRM User Phone : </strong>{{singlerecord.crm_user_phone_number}}</label>
+                        </div>
+                    </div> 
+                    <div class="col-lg-6" *ngIf="localstoragedata.is_superuser == 'True'">
+                        <div class="form-group">
+                            <label for="recipient-name" class="form-control-label"><strong>Next Call Date : </strong>{{singlerecord.next_call_date | date:'longDate'}}</label>
+                        </div>
+                    </div> 
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="recipient-name" class="form-control-label"><strong>More Information : </strong>{{singlerecord.more_information}}</label>
+                        </div>
+                    </div> 
+                   
+                    <div class="seperate-line"></div>
+                </div>   
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Edit Record -->
+<div class="modal fade show" id="editRecordModal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="example-Modal3">Edit Record</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+            </div>
+            <form [formGroup]="update_record">    
+                <div class="modal-body">
+                   <div class="row">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Firm Name</strong> <span class="required-star">*</span></label>
+                      <input type="text" class="form-control" name="example-text-input" placeholder="Firm Name" formControlName="firm_name">
+                        <div *ngIf="(f.firm_name.errors && f.firm_name.touched) || (f.firm_name.errors && submitted)" class="errorMsg">
+                            <div *ngIf="f.firm_name.errors.required" >This field is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Phone Number</strong> <span class="required-star">*</span></label>
+                      <input type="text" class="form-control" name="example-text-input" placeholder="Phone Number" formControlName="phone_number">
+                        <div *ngIf="(f.phone_number.errors && f.phone_number.touched) || (f.phone_number.errors && submitted)" class="errorMsg">
+                            <div *ngIf="f.phone_number.errors.required" >This field is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>GST No.</strong> <span class="required-star">*</span></label>
+                      <input type="text" class="form-control" name="example-text-input" placeholder="GST No." formControlName="gstn">
+                        <div *ngIf="(f.gstn.errors && f.gstn.touched) || (f.gstn.errors && submitted)" class="errorMsg">
+                            <div *ngIf="f.gstn.errors.required" >This field is required</div>
+                             <div [hidden]="!f.gstn.errors.patternGstnInvalid">This field will have 15 digit not more not less</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Country</strong> <span class="required-star">*</span></label>
+                      <select  class="form-control" formControlName="country" (change)="changeCountry($event.target.value)">
+                        <option [attr.selected]="hcountry==''" value="" disabled>--Select Country--</option>
+                        <option *ngFor="let country of countryRecord" value="{{country}}">{{country}}</option>
+                        
+                      </select>
+                         <div *ngIf="(f.country.errors && f.country.touched) || (f.country.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.country.errors.required" >This field is required</div>
+                              
+                          </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" >
+                    <div class="form-group">
+                      <label class="form-label"><strong>State</strong> <span class="required-star">*</span></label>
+                      <select  class="form-control" formControlName="state" (change)="changeState($event.target.value)">
+                        <!-- <option [attr.selected]="hstate==''" value="" disabled>--Select State--</option> -->
+                        <option *ngFor="let state of stateRecord"  value="{{state}}" >{{state}}</option>
+                        
+                      </select>
+                         <div *ngIf="(f.state.errors && f.state.touched) || (f.state.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.state.errors.required" >This field is required</div>
+                              
+                          </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" >
+                    <div class="form-group">
+                      <label class="form-label"><strong>City</strong> <span class="required-star">*</span></label>
+                      <select  class="form-control" formControlName="city" >
+                        <option [attr.selected]="hcity==''" value="" disabled>--Select City--</option>
+                        <option *ngFor="let city of cityRecord" value="{{city}}">{{city}}</option>
+                        
+                      </select>
+                         <div *ngIf="(f.city.errors && f.city.touched) || (f.city.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.city.errors.required" >This field is required</div>
+                              
+                          </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Merchant Type</strong> <span class="required-star">*</span></label>
+                      <select  class="form-control" formControlName="merchant_type" >
+                        <option [attr.selected]="hmerchanttype==''" value="" disabled>--Select Merchant Type--</option>
+                        <option *ngFor="let merchant of merchanttype" value="{{merchant}}">{{merchant}}</option>
+                        
+                      </select>
+                         <div *ngIf="(f.merchant_type.errors && f.merchant_type.touched) || (f.merchant_type.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.merchant_type.errors.required" >This field is required</div>
+                              
+                          </div>
+                    </div>
+                </div>
+
+                 <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Customer Segment</strong> <span class="required-star">*</span></label>
+                      <select  class="form-control" formControlName="customer_segment" >
+                        <option [attr.selected]="hcustomer_segment==''" value="" disabled>--Select Customer Segment--</option>
+                        <option *ngFor="let customersegment of customer_segment" value="{{customersegment}}">{{customersegment}}</option>
+                        
+                      </select>
+                         <div *ngIf="(f.customer_segment.errors && f.customer_segment.touched) || (f.customer_segment.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.customer_segment.errors.required" >This field is required</div>
+                              
+                          </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" *ngIf="localstoragedata.is_superuser == 'True'">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Next Call Date</strong> </label>
+                      <input type="date" class="form-control" name="example-text-input"   formControlName="next_call_date">
+                        
+                    </div>
+                </div>
+
+                <div class="col-lg-4" *ngIf="localstoragedata.is_superuser == 'False'">
+                    <div class="form-group" *ngIf="singlerecord">
+                      <label class="form-label"><strong>Next Call Date</strong> </label>
+                      <input type="text" class="form-control" name="example-text-input" value="{{singlerecord.next_call_date}}"  readonly="readonly" >
+                        
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="form-group">
+                      <label class="form-label"><strong>More Information</strong></label>
+                      <textarea class="form-control" name="example-text-input"   formControlName="more_information"></textarea>
+                        
+                    </div>
+                </div>
+            </div>   
+               </div>
+                <div class="modal-footer">
+                     
+                    <button *ngIf="!processingFlag" type="button" class="btn btn-primary" (click)="onUpdate();">Update</button>
+
+                    <button *ngIf="processingFlag" type="button" class="btn btn-primary" ><i class="fa fa-spinner fa-spin"></i> Processing...</button>
+                </div>
+            </form>    
+        </div>
+    </div>
+</div>

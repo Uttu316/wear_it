@@ -1,0 +1,103 @@
+<div class="mb-4">
+    <div class="page-header mb-0">
+        <h3 class="page-title">Edit Profile</h3>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Profile</li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><img src="assets/images/icon/information.png">&nbsp;Update Profile</h3>
+            </div>
+          <div class="card-body">
+            <form [formGroup]="update_profile" class="form-horizontal" class="form" autocomplete="off">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                          <label class="form-label"> Name </label>
+                          <input type="text" class="form-control" name="example-text-input" placeholder="Name" formControlName="name">
+                            <div *ngIf="(f.name.errors && f.name.touched) || (f.name.errors && submitted)" class="errorMsg">
+                                <div *ngIf="f.name.errors.required" >This field is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                   
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                          <label class="form-label">Email </label>
+                          <input type="text" class="form-control" name="example-text-input" placeholder="Email" formControlName="email">
+                            <div *ngIf="(f.email.errors && f.email.touched) || (f.email.errors && submitted)" class="errorMsg" >
+                                <div *ngIf= "f.email.errors.required">This field  is required.</div>
+                                <div [hidden]="!f.email.errors.patternInvalid">Please enter valid email.</div>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                          <label class="form-label">Phone Number </label>
+                          <input type="text" class="form-control" name="example-text-input" placeholder="Phone Number" formControlName="phone_number">
+                            <div *ngIf="(f.phone_number.errors && f.phone_number.touched) || (f.phone_number.errors && submitted)" class="errorMsg">
+                               <div *ngIf="f.phone_number.errors.required" >This field is required</div>
+                                <div [hidden]="!f.phone_number.errors.patternMobileInvalid">Mobile Number should be 10 digit</div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                  
+                 <!--  <div class="col-lg-12">
+                    <div class=" mt-2 mb-0"> <button type="button" class="btn btn-primary" (click)="onSubmit()" >Update</button> </div>
+                  </div> -->
+                </div>
+            
+            </form>
+          </div>
+        </div>
+    </div>
+    <!-- <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><img src="assets/images/icon/information.png">&nbsp;Change Password</h3>
+            </div>
+          <div class="card-body">
+            <form [formGroup]="loginPassword" class="form-horizontal" class="form" autocomplete="off">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                          <label class="form-label">New Password </label>
+                         <input type="password" class="form-control " placeholder="Enter your New Password" formControlName="newpassword">
+                            <div *ngIf="(formFieldLogin.newpassword.errors && submittedw) || (formFieldLogin.newpassword.errors && formFieldLogin.newpassword.touched)">
+                                <div *ngIf="formFieldLogin.newpassword.errors.required" class="error-msg">New Password is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                          <label class="form-label">Confirm New Password </label>
+                           <input type="password" class="form-control form-control-rounded" placeholder="Enter New Password" formControlName="confirmPassword">
+                            <div *ngIf="(formFieldLogin.confirmPassword.errors && submittedw) || (formFieldLogin.confirmPassword.errors && formFieldLogin.confirmPassword.touched)">
+                                <div *ngIf="formFieldLogin.confirmPassword.errors.required" class="error-msg">Confirm Password is required</div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
+                  
+                  
+                  <div class="col-lg-12">
+                    <div class=" mt-2 mb-0"> <button type="button" class="btn btn-primary" (click)="onUpdatePassword()" >Update</button> </div>
+                    
+                    
+                  </div>
+                </div>
+            
+            </form>
+          </div>
+        </div>
+    </div> -->
+</div>

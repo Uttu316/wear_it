@@ -1,0 +1,139 @@
+ <!-- Breadcrumb Start -->
+<div class="bread-crumb">
+    <div class="container">
+        <div class="matter">
+            <h2>Register</h2>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="index-4.html">HOME</a></li>
+                <li class="list-inline-item"><a href="#">Register</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+<!-- Login Start -->
+<div class="login">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 commontop text-center">
+                <h4>Create an Account</h4>
+                <div class="divider style-1 center">
+                    <span class="hr-simple left"></span>
+                    <i class="icofont icofont-ui-press hr-icon"></i>
+                    <span class="hr-simple right"></span>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Mauris a sodales mi, eget lobortis nulla.</p>
+            </div>
+            <div class="col-lg-10 col-md-12">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="loginnow">
+                            <h5>Register</h5>
+                            <p>Do You have an account? So <a >login</a> And starts less than a minute</p>
+                           <form [formGroup]="register" class="form-horizontal"  class="form">
+                            <div class="row">    
+                                <div class="form-group col-sm-6">
+                                    <i class="icofont icofont-ui-user"></i>
+                                     <input type="text" id="name" class="form-control" placeholder="Full Name" formControlName="name" required [ngClass]="{ 'is-invalid': (f.name.errors && f.name.touched) || (f.name.errors && submitted) }">
+                                    <div *ngIf="(f.name.errors && f.name.touched) || (f.name.errors && submitted)" class="errorMsg">
+                                        <div *ngIf="f.name.errors.required" >This field is required</div>
+                                        <div [hidden]="!f.name.errors.patternNameInvalid">No space allow at (start or end) and allow only alphabets</div>
+                                    </div>
+                                </div>
+                                <div class="form-group  col-sm-6">
+                                    <i class="icofont icofont-ui-message"></i>
+                                    <input type="text" id="email" class="form-control" placeholder="Email Address" formControlName="email" [ngClass]="{ 'is-invalid': (f.email.errors && f.email.touched) || (f.email.errors && submitted) }" >
+                                    <div *ngIf="(f.email.errors && f.email.touched) || (f.email.errors && submitted)" class="errorMsg" >
+                                        <div *ngIf= "f.email.errors.required">This field  is required.</div>
+                                        <div [hidden]="!f.email.errors.patternInvalid">Please enter valid email.</div>
+                                    </div> 
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <i class="icofont icofont-ui-message"></i>
+                                    <input type="text" id="mobile" class="form-control "placeholder="Mobile" formControlName="mobile" minlength="5" maxlength="20" pattern="^(?=.*[0-9]).{5,20}$" required [ngClass]="{ 'is-invalid': (f.mobile.errors && f.mobile.touched) || (f.mobile.errors && submitted) }"> 
+                                    <div *ngIf="(f.mobile.errors && f.mobile.touched) || (f.mobile.errors && submitted)" class="errorMsg">
+                                       <div *ngIf="f.mobile.errors.required" >This field is required</div>
+                                        <div [hidden]="!f.mobile.errors.patternMobileInvalid">Mobile Number should be up to 20 digit</div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <i class="icofont icofont-lock"></i>
+                                    <input type="password" formControlName="password" class="form-control" placeholder="Password" [ngClass]="{ 'is-invalid': (f.password.errors && f.password.touched) || (f.password.errors && submitted) }" id="password" />
+                                  <div *ngIf="(f.password.errors && f.password.touched) || (f.password.errors && submitted)" class="errorMsg" >
+                                      <div *ngIf="f.password.errors.required" >This field  is required</div>
+                                  </div>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <i class="icofont icofont-lock"></i>
+                                    <input type="password" formControlName="confirmPassword" placeholder="Confirm Password" class="form-control" [ngClass]="{ 'is-invalid': (f.confirmPassword.errors && f.confirmPassword.touched) || (f.confirmPassword.errors && submitted) }" />
+                                  <div *ngIf="(f.confirmPassword.errors && f.confirmPassword.touched) || (f.confirmPassword.errors && submitted)" class="errorMsg">
+                                    <div *ngIf="f.confirmPassword.errors.required" >This field is required</div>
+                                    <div *ngIf="f.confirmPassword.errors.mustMatch">The password and confirmation password do not match.</div>
+                                  </div>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <div class="links">
+                                        <label><input type="checkbox" class="checkbox-inline"/> By signing up I agree with <a href="#">terms & conditions.</a> </label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-12 ">
+                                    <button type="button" class="btn btn-theme btn-md btn-wide" (click)="onRegister()">Register</button>
+                                </div>
+                             </div>   
+                            </form>
+                        </div>
+                    </div>
+
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Login End -->
+<!-- Newsletter Start -->
+<div id="newsletter">
+    <div class="container">
+        <div id="subscribe">
+            <!-- Subscribe Form -->
+            <form class="form-horizontal" name="subscribe">
+                <div class="row">
+                    <div class="col-sm-6 col-md-7"> 
+                        <div class="input-group">
+                            <span class="news">newsletter</span>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam iaculis lorem augue, at quam finibus eget.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-5 form-group">
+                        <div class="input-group">
+                            <input  value="" name="subscribe_email" id="subscribe_email" placeholder="Email" type="text">
+                            <button class="btn btn-news" type="submit" value="submit">Send</button>
+                        </div>
+                    </div>
+                </div> 
+            </form>
+            <!-- Subscribe Form -->
+        </div>
+    </div>
+</div>
+<!-- Newsletter End -->
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-1" aria-hidden="true" id="registerSuccessPopup" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content my-success-popup" style="background: #b9b6ec;" >
+            <div class="modal-body my-modal-body">
+                <div class="form-group success-body-msg text-center">
+                  <div class="cstm-modal-content success-body-content" style="    margin-top: 10%;">
+                    <h2 class="animated fadeInUp mt-4" data-aos="fade-right" style="color:#fff; font-weight: 700; text-shadow: 1px 4px 4px #000;" >Congratulations!</h2>
+                    <p class="animated fadeInUp mt-3" data-aos="fade-left" style="font-size: 16px; color: #ffffff;font-weight: bold;">Your account has been created. Please check your email id. Click the below button to redirect to Login Page.</p>
+                    <p>
+                      <a (click)="loginRedirect();" class="animated fadeInUp btn btn-md btn-primary" style="color: #047bf8;background: #fff;font-weight: 800;border: 2px solid #047bf8;cursor: pointer;">Go To Login</a>
+                    </p>
+                  </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+
+
+@media (max-width: 768px){
+   .close-btns {
+   border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    color: #fff;
+    left: 0px;
+    background: #254daa;
+    padding: 5px 13px;
+    display: block!important;
+
+	}
+}

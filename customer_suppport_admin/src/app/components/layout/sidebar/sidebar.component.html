@@ -1,0 +1,197 @@
+<!-- <app-navbar></app-navbar> -->
+<div class="page">
+    <div class="page-main" >
+        <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+        <aside class="app-sidebar mCustomScrollbar _mCS_1 mCS-autoHide" style="overflow: visible;">
+            <div id="mCSB_1" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" style="max-height: none;"
+                tabindex="0">
+                <div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+                    <div class="app-sidebar__user">
+                        <div class="user-body">
+                            <span class="avatar avatar-lg brround text-center cover-image"
+                                data-image-src="assets/images/profile.png"
+                                style="background: url(assets/images/profile.png) center center;">
+                            </span>
+                        </div>
+                        <div class="user-info" *ngIf="localstoragedata"> <a href="javascript:void(0)" class="ml-2"><span
+                                    class="text-dark app-sidebar__user-name font-weight-semibold">{{localstoragedata.name}}</span><br><!-- <span class="text-muted app-sidebar__user-name text-sm"> Web
+                                    Designer</span> --> </a> </div>
+
+                        <div class="profile-settings">
+                            <a class="" href="javascript:void(0)"> <i class="fa fa-plus"></i> </a>
+                        </div>
+
+                    </div>
+                    <ul class="side-menu">
+                        <li class="slide">
+                            <a class="side-menu__item active" routerLink="/dashboard" (click)="removeSidebar();">
+                                <i class="side-menu__icon fas fa-tachometer-alt fa-xs"></i>
+                                <span class="side-menu__label">Home</span>
+                            </a>
+                        </li>
+
+                        <li class="slide" >
+                            <a class="side-menu__item" data-toggle="slide" href="javascript:void(0)" *ngIf="localstoragedata.is_superuser == 'True'">
+                                <i class="side-menu__icon fas fa-user fa-xs "></i>
+                                <span class="side-menu__label">Manage User</span>
+                                <i class="angle fa fa-angle-right"></i>
+                            </a>
+                            <ul class="slide-menu">
+                                <li>
+                                    <a routerLink="/manage-user/view-user" class="slide-item"><i class="fa fa-dot-circle submenu-color" aria-hidden="true"></i>&nbsp;User List</a>
+                                </li>
+                                <li>
+                                    <a routerLink="/manage-user/add-user" class="slide-item"><i class="fa fa-dot-circle submenu-color" aria-hidden="true"></i>&nbsp;Add New User</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="slide">
+                            <a class="side-menu__item" data-toggle="slide" href="javascript:void(0)">
+                                <i class="side-menu__icon fas fa-user fa-xs "></i>
+                                <span class="side-menu__label">Manage Merchant</span>
+                                <i class="angle fa fa-angle-right"></i>
+                            </a>
+                            <ul class="slide-menu">
+                                <li>
+                                    <a routerLink="/manage-merchant/view-merchant" class="slide-item"><i class="fa fa-dot-circle submenu-color" aria-hidden="true"></i>&nbsp;Merchant List</a>
+                                </li>
+                                <li>
+                                    <a routerLink="/manage-merchant/add-merchant" class="slide-item"><i class="fa fa-dot-circle submenu-color" aria-hidden="true"></i>&nbsp;Add New Merchant</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+
+                        <!-- <li class="slide">
+                            <a class="side-menu__item" data-toggle="slide" href="javascript:void(0)">
+                                <i class="side-menu__icon fas fa-globe fa-xs"></i>
+                                <span class="side-menu__label">Category</span>
+                                <i class="angle fa fa-angle-right"></i>
+                            </a>
+                            <ul class="slide-menu">
+                                <li>
+                                    <a routerLink="/category/view-category" class="slide-item"><i class="fa fa-dot-circle submenu-color" aria-hidden="true"></i>&nbsp;Category List</a>
+                                </li>
+                                <li>
+                                    <a routerLink="/category/add-category" class="slide-item"><i class="fa fa-dot-circle submenu-color" aria-hidden="true"></i>&nbsp;Add New Category</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+
+                        
+
+                        <li class="slide">
+                            <a class="side-menu__item" data-toggle="slide" href="javascript:void(0)">
+                                <i class="side-menu__icon fas fa-store fa-xs"></i>
+                                <span class="side-menu__label">Shop</span>
+                                <i class="angle fa fa-angle-right"></i>
+                            </a>
+                            <ul class="slide-menu">
+                                <li>
+                                    <a routerLink="/shop/view-shop" class="slide-item"><i class="fa fa-dot-circle submenu-color" aria-hidden="true"></i>&nbsp;Shop List</a>
+                                </li>
+                                <li>
+                                    <a routerLink="/shop/add-shop" class="slide-item"><i class="fa fa-dot-circle submenu-color" aria-hidden="true"></i>&nbsp;Add New Shop</a>
+                                </li>
+                                
+                            </ul>
+                        </li> -->
+
+                       <!--  <li class="slide">
+                            <a class="side-menu__item" data-toggle="slide" href="javascript:void(0)">
+                                <i class="side-menu__icon fas fa-user fa-xs"></i>
+                                <span class="side-menu__label">Patients</span>
+                                <i class="angle fa fa-angle-right"></i>
+                            </a>
+                            <ul class="slide-menu">
+                                <li>
+                                    <a routerLink="/patients/view-patients" class="slide-item"><i class="fa fa-dot-circle submenu-color" aria-hidden="true"></i>&nbsp;Patients List</a>
+                                </li>
+                                <li>
+                                    <a routerLink="/patients/add-patients" class="slide-item"><i class="fa fa-dot-circle submenu-color" aria-hidden="true"></i>&nbsp;Add New Patients</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        -->
+                        
+                      
+
+
+                     
+                        <li class="slide">
+                            <a class="side-menu__item " (click)="onLogout()" href="javascript:void(0)">
+                                <i class="side-menu__icon fas fa-sign-out-alt fa-xs"></i>
+                                <span class="side-menu__label">LogOut</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="close-btns" (click)="removeSidebar();" style="display: none;"><i class="fa fa-angle-left"></i></div>
+            </div>
+
+            <div id="mCSB_1_scrollbar_vertical"
+                class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal mCSB_scrollTools_vertical" style="display: block;">
+                <div class="mCSB_draggerContainer">
+                    <div id="mCSB_1_dragger_vertical" class="mCSB_dragger"
+                        style="position: absolute; min-height: 50px; display: block; height: 98px; max-height: 306px; top: 0px;">
+                        <div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
+                    </div>
+                    <div class="mCSB_draggerRail"></div>
+                </div>
+            </div>
+        </aside>
+        <div class=" app-content my-3 my-md-5">
+            <div class="side-app">
+                <header class="app-header header navbar-collapse" >
+                    <!-- Navbar Right Menu-->
+                    <div class="container-fluid p-0">
+                        <div class="d-flex">
+                            <!-- Sidebar toggle button-->
+                            <span class="app-sidebar__toggle"><i class="fa fa-bars"></i></span>
+                            <a class="header-brand" routerLink="/dashboard"> <img alt="logo"
+                                    class="header-brand-img main-logo" src="assets/images/logo.png"> <img alt="logo"
+                                    class="header-brand-img mobile-logo" src="assets/images/icon.png"> </a>
+                            <div class="d-flex order-lg-2 ml-auto">
+                                <div class="d-sm-flex d-none">
+                                    <a href="#" class="nav-link icon full-screen-link"> <i
+                                            class="fe fe-minimize fullscreen-button"></i> </a>
+                                </div>
+                                <div class="dropdown">
+                                    <a class="profile_toggle nav-link pr-0 leading-none d-flex" href="javascript:void(0)" > <span class="avatar avatar-md brround cover-image"
+                                            data-image-src="assets/images/profile.png"
+                                            style="background: url(&quot;assets/images/profile.png&quot;) center center;"></span>
+                                        <span class="ml-2 d-none d-lg-block"> <span class="text-dark">{{localstoragedata.name}}</span>
+                                        </span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                     <a class="dropdown-item" routerLink="/profile" ><i class="dropdown-icon fe fe-user"></i>My Profile</a> 
+                                        <div class="dropdown-divider"></div> <a class="dropdown-item" (click)="onLogout()" href="javascript:void(0)"><i
+                                                class="dropdown-icon fe fe-power"></i> Log Out</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+
+                <router-outlet></router-outlet>
+
+
+
+                <footer class="footer">
+                    <div class="container">
+                        <div class="row align-items-center flex-row-reverse">
+                            <!-- <div class="col-md-12 col-sm-12 text-center"> Copyright © 2020 All rights reserved. </div> -->
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+    </div>
+</div>

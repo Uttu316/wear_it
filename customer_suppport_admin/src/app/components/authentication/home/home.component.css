@@ -1,0 +1,70 @@
+*{
+    font-family: 'Rubik', sans-serif;
+}
+.width-80 {
+    width: 80%;
+    float: right;
+}
+.width-20 {
+    width: 20%;
+    float: left;
+}
+.form-group .control-label, .form-group>label {
+   width: 100%;
+}
+.card-authentication {
+    width: 50rem;
+}
+.mobileno {
+    width: 80%;
+    float: right;
+}
+span.input-group-addon.edit_code.width-20 {
+    border: #ccc solid 1px;
+    padding: 9px;
+    width: 19%;
+    border-radius: 4px;
+    margin-top: 0px;
+    display: inline-block;
+}
+img#loginLoader {
+    position: absolute;
+    z-index: 99;
+    right: 6px;
+    top: -6px;
+}
+.incorrect-fst {
+       position: absolute;
+    z-index: 99;
+    right: 24px;
+    top: 38px;
+    font-size: 20px;
+    color: red;
+}
+.correct-fst {
+       position: absolute;
+    z-index: 99;
+    right: 24px;
+    top: 38px;
+    font-size: 20px;
+    color: green;
+}
+.successicon {
+    background-color: green;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 30px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.successtext {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.login-credential-text {
+    font-size: 16px;
+    color: #888;
+}
+.login-credential {
+    margin-bottom: 15px;
+}

@@ -1,0 +1,266 @@
+<div class="mb-4">
+    <div class="page-header mb-0">
+        <h3 class="page-title">Home</h3>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Home</li>
+        </ol>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+        <form class="card card-sm">
+            <div class="card-body row no-gutters align-items-center">
+                <div class="col-auto col-auto-btn">
+                    <i class="fas fa-search h4 text-body"></i>
+                </div>
+                <!--end of col-->
+                <div class="col">
+                    <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search by Phone number..." #search>
+                </div>
+                <!--end of col-->
+                <div class="col-auto">
+                    <button class="btn btn-lg btn-primary" type="submit" (click)="searchbyphone(search.value);">Search</button>
+                </div>
+                <!--end of col-->
+            </div>
+        </form>
+    </div>
+
+     <div class="col-12 col-md-10 col-lg-8" *ngIf="tableview['failmessage']">
+        <form class="card card-sm">
+            <div class="card-body row no-gutters align-items-center" style="margin: 0 auto;">
+               <div class="no-record">{{tableview['failmessage']}}</div>
+            </div>
+        </form>
+    </div>
+
+    <!-- <div class="col-12 col-md-10 col-lg-8" *ngIf="tableview['failmessage']">
+        <form class="card card-sm">
+            <div class="card-body row no-gutters align-items-center" style="margin: 0 auto;">
+               <div class="no-record">{{tableview['failmessage']}}</div>
+            </div>
+        </form>
+    </div> -->
+    <div class="col-12 col-md-10 col-lg-8" *ngIf="singlerecord">
+        <form class="card card-sm" style="border-top: 5px solid #3f51b5;" *ngIf="(user_status == 1) || (user_status == 2) ">
+            <div class="card-body row no-gutters align-items-center" >
+                <div class="status1"><span *ngIf="(user_status == 1)" class="status1-message-green">App has been downloaded</span></div>
+                <div class="status1"><span *ngIf="(user_status == 2)" class="status1-message-red">App has not been downloaded</span></div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border-radius: 16px;">
+                            <div class="well profile col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                    <figure>
+                                         <img *ngIf="singlerecord.firm_profile_pic" src="{{singlerecord.firm_profile_pic}}" alt="" class="img-circle" style="width:75px;" (click)="viewImage()" id="user-img" style="cursor:pointer">
+
+                                         <img *ngIf="!singlerecord.firm_profile_pic" src="assets/images/profile.png" alt="" class="img-circle" style="width:75px;"  id="user-img" style="cursor:pointer">
+                                    </figure>
+                                    <p style="text-align:center;font-size: smaller;" id="user-frid"><strong>Firm Name </strong>: {{singlerecord.firm_name}} </p>
+
+                                    <p style="text-align:center;font-size: smaller;" id="user-frid"><strong>Email </strong>: {{singlerecord.email}} </p>
+
+                                    <p style="text-align:center;font-size: smaller;" id="user-frid"><strong>Phone Number </strong>: {{singlerecord.phone_number}} </p>
+
+                                    <p style="text-align:center;font-size: smaller;" id="user-frid"><strong>City </strong>: {{singlerecord.city}} </p>
+
+                                    <p style="text-align:center;font-size: smaller;" id="user-frid"><strong>State </strong>: {{singlerecord.state}} </p>
+
+                                    <p style="text-align:center;font-size: smaller;" id="user-frid"><strong>Country </strong>: {{singlerecord.country}} </p>
+
+                                    <p style="text-align:center;font-size: smaller;" id="user-frid"><strong>Address </strong>: {{singlerecord.address}} </p>
+
+                                    <p style="text-align:center;font-size: smaller;" id="user-frid"><strong>Pincode </strong>: {{singlerecord.pin_code}} </p>
+
+                                    <p style="text-align:center;font-size: smaller;" id="user-frid"><strong>GST No. </strong>: {{singlerecord.gstn}} </p>
+
+                                    <p style="text-align:center;font-size: smaller;" id="user-frid"><strong>Merchant Type</strong>: {{singlerecord.merchant_type}} </p>
+                                   
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-lg-12" *ngIf="(user_status == 2)" style="text-align: center;">
+                        <div class=" mt-5 mb-0"> 
+                        <button  type="button" class="btn btn-primary" (click)="editMerchant()" >&nbsp;Edit Merchant</button> 
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </form>
+         <div class="col-lg-12" *ngIf="(user_status == 3)" style="text-align: center;">
+            <div class=" mt-5 mb-0"> 
+            <button  type="button" class="btn btn-primary" routerLink="/manage-merchant/add-merchant" >&nbsp;Add Merchant</button> 
+            </div>
+        </div>
+    </div>            
+    <!--end of col-->
+</div>
+<div class="modal fade product_view" id="product_view" *ngIf="singlerecord">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" class="class pull-right"><span class="fa fa-remove"></span></a>
+               
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 product_img">
+                        <img src="{{singlerecord.firm_profile_pic_1024}}" class="img-responsive">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Edit Record -->
+<div class="modal fade show" id="editRecordModal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="example-Modal3">Edit Record</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+            </div>
+            <form [formGroup]="update_record">    
+                <div class="modal-body">
+                   <div class="row">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Firm Name</strong> <span class="required-star">*</span></label>
+                      <input type="text" class="form-control" name="example-text-input" placeholder="Firm Name" formControlName="firm_name">
+                        <div *ngIf="(f.firm_name.errors && f.firm_name.touched) || (f.firm_name.errors && submitted)" class="errorMsg">
+                            <div *ngIf="f.firm_name.errors.required" >This field is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Phone Number</strong> <span class="required-star">*</span></label>
+                      <input type="text" class="form-control" name="example-text-input" placeholder="Phone Number" formControlName="phone_number">
+                        <div *ngIf="(f.phone_number.errors && f.phone_number.touched) || (f.phone_number.errors && submitted)" class="errorMsg">
+                            <div *ngIf="f.phone_number.errors.required" >This field is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>GST No.</strong> <span class="required-star">*</span></label>
+                      <input type="text" class="form-control" name="example-text-input" placeholder="GST No." formControlName="gstn">
+                        <div *ngIf="(f.gstn.errors && f.gstn.touched) || (f.gstn.errors && submitted)" class="errorMsg">
+                            <div *ngIf="f.gstn.errors.required" >This field is required</div>
+                             <div [hidden]="!f.gstn.errors.patternGstnInvalid">This field will have 15 digit not more not less</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Country</strong> <span class="required-star">*</span></label>
+                      <select  class="form-control" formControlName="country" (change)="changeCountry($event.target.value)">
+                        <option [attr.selected]="hcountry==''" value="" disabled>--Select Country--</option>
+                        <option *ngFor="let country of countryRecord" value="{{country}}">{{country}}</option>
+                        
+                      </select>
+                         <div *ngIf="(f.country.errors && f.country.touched) || (f.country.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.country.errors.required" >This field is required</div>
+                              
+                          </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" >
+                    <div class="form-group">
+                      <label class="form-label"><strong>State</strong> <span class="required-star">*</span></label>
+                      <select  class="form-control" formControlName="state" (change)="changeState($event.target.value)">
+                        <!-- <option [attr.selected]="hstate==''" value="" disabled>--Select State--</option> -->
+                        <option *ngFor="let state of stateRecord"  value="{{state}}" >{{state}}</option>
+                        
+                      </select>
+                         <div *ngIf="(f.state.errors && f.state.touched) || (f.state.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.state.errors.required" >This field is required</div>
+                              
+                          </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" >
+                    <div class="form-group">
+                      <label class="form-label"><strong>City</strong> <span class="required-star">*</span></label>
+                      <select  class="form-control" formControlName="city" >
+                        <option [attr.selected]="hcity==''" value="" disabled>--Select City--</option>
+                        <option *ngFor="let city of cityRecord" value="{{city}}">{{city}}</option>
+                        
+                      </select>
+                         <div *ngIf="(f.city.errors && f.city.touched) || (f.city.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.city.errors.required" >This field is required</div>
+                              
+                          </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Merchant Type</strong> <span class="required-star">*</span></label>
+                      <select  class="form-control" formControlName="merchant_type" >
+                        <option [attr.selected]="hmerchanttype==''" value="" disabled>--Select Merchant Type--</option>
+                        <option *ngFor="let merchant of merchanttype" value="{{merchant}}">{{merchant}}</option>
+                        
+                      </select>
+                         <div *ngIf="(f.merchant_type.errors && f.merchant_type.touched) || (f.merchant_type.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.merchant_type.errors.required" >This field is required</div>
+                              
+                          </div>
+                    </div>
+                </div>
+
+                 <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Customer Segment</strong> <span class="required-star">*</span></label>
+                      <select  class="form-control" formControlName="customer_segment" >
+                        <option [attr.selected]="hcustomer_segment==''" value="" disabled>--Select Customer Segment--</option>
+                        <option *ngFor="let customersegment of customer_segment" value="{{customersegment}}">{{customersegment}}</option>
+                        
+                      </select>
+                         <div *ngIf="(f.customer_segment.errors && f.customer_segment.touched) || (f.customer_segment.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.customer_segment.errors.required" >This field is required</div>
+                              
+                          </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" *ngIf="localstoragedata.is_superuser == 'True'">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Next Call Date</strong> </label>
+                      <input type="date" class="form-control" name="example-text-input"   formControlName="next_call_date">
+                        
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="form-group">
+                      <label class="form-label"><strong>More Information</strong></label>
+                      <textarea class="form-control" name="example-text-input"   formControlName="more_information"></textarea>
+                        
+                    </div>
+                </div>
+            </div>   
+               </div>
+                <div class="modal-footer">
+                     
+                    <button *ngIf="!processingFlag" type="button" class="btn btn-primary" (click)="onUpdate();">Update</button>
+
+                    <button *ngIf="processingFlag" type="button" class="btn btn-primary" ><i class="fa fa-spinner fa-spin"></i> Processing...</button>
+                </div>
+            </form>    
+        </div>
+    </div>
+</div>

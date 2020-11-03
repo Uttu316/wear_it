@@ -1,0 +1,48 @@
+#notfound {
+    position: relative;
+    height: 100vh;
+    background: #fff;
+
+}
+#notfound .notfound {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+        text-align: center;
+            width: 40%;
+}
+.notfound .notfound-404 h1 {
+    font-family: cabin,sans-serif;
+    position: relative;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #262626;
+    margin: 0;
+    letter-spacing: 1px;
+    padding-left: 6px;
+    margin-bottom: 10px;
+}
+
+.notfound .notfound-404-details h3 {
+    position: relative;
+    font-size: 14px;
+    font-weight: 500;
+    color: #9a9696;
+    margin: 0;
+    letter-spacing: 0px;
+    padding-left: 6px;
+    margin-bottom: 20px;
+}
+
+.try-again-btn {
+    border: 1px solid #0083ff;
+    border-radius: 2px;
+    padding: 1px 5px;
+    font-size: 12px;
+    color: #0083ff !important;
+    cursor: pointer;
+}

@@ -1,0 +1,161 @@
+<div class="mb-4">
+  <div class="page-header  mb-0">
+    <h4 class="page-title">Add Merchant</h4>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Add Merchant</li>
+    </ol>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title"><img src="assets/images/icon/information.png">&nbsp;Add Merchant</h3>
+
+      </div>
+      <div class="card-body">
+        <form [formGroup]="add_record" class="form-horizontal" class="form" autocomplete="off">
+          <div class="card-body">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Firm Name</strong> <span class="required-star">*</span></label>
+                      <input type="text" class="form-control" name="example-text-input" placeholder="Firm Name" formControlName="firm_name">
+                        <div *ngIf="(f.firm_name.errors && f.firm_name.touched) || (f.firm_name.errors && submitted)" class="errorMsg">
+                            <div *ngIf="f.firm_name.errors.required" >This field is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Phone Number</strong> <span class="required-star">*</span></label>
+                      <input type="text" class="form-control" name="example-text-input" placeholder="Phone Number" formControlName="phone_number">
+                        <div *ngIf="(f.phone_number.errors && f.phone_number.touched) || (f.phone_number.errors && submitted)" class="errorMsg">
+                            <div *ngIf="f.phone_number.errors.required" >This field is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>GST No.</strong> <span class="required-star">*</span></label>
+                      <input type="text" class="form-control" name="example-text-input" placeholder="GST No." formControlName="gstn">
+                        <div *ngIf="(f.gstn.errors && f.gstn.touched) || (f.gstn.errors && submitted)" class="errorMsg">
+                            <div *ngIf="f.gstn.errors.required" >This field is required</div>
+                             <div [hidden]="!f.gstn.errors.patternGstnInvalid">This field will have 15 digit not more not less</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Country</strong> <span class="required-star">*</span></label>
+                      <select  class="form-control" formControlName="country" (change)="changeCountry($event.target.value)">
+                        <option [attr.selected]="hcountry==''" value="" disabled>--Select Country--</option>
+                        <option *ngFor="let country of countryRecord" value="{{country}}">{{country}}</option>
+                        
+                      </select>
+                         <div *ngIf="(f.country.errors && f.country.touched) || (f.country.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.country.errors.required" >This field is required</div>
+                              
+                          </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" *ngIf="stateflag">
+                    <div class="form-group">
+                      <label class="form-label"><strong>State</strong> <span class="required-star">*</span></label>
+                      <select  class="form-control" formControlName="state" (change)="changeState($event.target.value)">
+                        <option [attr.selected]="hstate==''" value="" disabled>--Select State--</option>
+                        <option *ngFor="let state of stateRecord"  value="{{state}}">{{state}}</option>
+                        
+                      </select>
+                         <div *ngIf="(f.state.errors && f.state.touched) || (f.state.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.state.errors.required" >This field is required</div>
+                              
+                          </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" *ngIf="cityflag">
+                    <div class="form-group">
+                      <label class="form-label"><strong>City</strong> <span class="required-star">*</span></label>
+                      <select  class="form-control" formControlName="city" >
+                        <option [attr.selected]="hcity==''" value="" disabled>--Select City--</option>
+                        <option *ngFor="let city of cityRecord" value="{{city}}">{{city}}</option>
+                        
+                      </select>
+                         <div *ngIf="(f.city.errors && f.city.touched) || (f.city.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.city.errors.required" >This field is required</div>
+                              
+                          </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Merchant Type</strong> <span class="required-star">*</span></label>
+                      <select  class="form-control" formControlName="merchant_type" >
+                        <option [attr.selected]="hmerchanttype==''" value="" disabled>--Select Merchant Type--</option>
+                        <option *ngFor="let merchant of merchanttype" value="{{merchant}}">{{merchant}}</option>
+                        
+                      </select>
+                         <div *ngIf="(f.merchant_type.errors && f.merchant_type.touched) || (f.merchant_type.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.merchant_type.errors.required" >This field is required</div>
+                              
+                          </div>
+                    </div>
+                </div>
+
+                 <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Customer Segment</strong> <span class="required-star">*</span></label>
+                      <select  class="form-control" formControlName="customer_segment" >
+                        <option [attr.selected]="hcustomer_segment==''" value="" disabled>--Select Customer Segment--</option>
+                        <option *ngFor="let customersegment of customer_segment" value="{{customersegment}}">{{customersegment}}</option>
+                        
+                      </select>
+                         <div *ngIf="(f.customer_segment.errors && f.customer_segment.touched) || (f.customer_segment.errors && submitted)" class="errorMsg">
+                             <div *ngIf="f.customer_segment.errors.required" >This field is required</div>
+                              
+                          </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" *ngIf="localstoragedata.is_superuser == 'True'">
+                    <div class="form-group">
+                      <label class="form-label"><strong>Next Call Date</strong> </label>
+                      <input type="date" class="form-control" name="example-text-input"   formControlName="next_call_date">
+                        
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="form-group">
+                      <label class="form-label"><strong>More Information</strong></label>
+                      <textarea class="form-control" name="example-text-input"   formControlName="more_information"></textarea>
+                        
+                    </div>
+                </div>
+
+                
+
+               
+                
+                <div class="col-lg-12">
+                  <div class=" mt-5 mb-0"> 
+
+                    <button *ngIf="!processingFlag" type="button" class="btn btn-primary" (click)="onSubmit()" ><i class="fa fa-plus"></i>&nbsp;Add Merchant</button> 
+                    <button *ngIf="processingFlag" type="button" class="btn btn-primary"  ><i class="fa fa-spinner fa-spin"></i> Processing...</button> 
+
+                  </div>
+                </div>
+            </div>
+          </div>
+         </form>
+      </div>
+    </div>
+  </div>
+</div>
